@@ -1,0 +1,119 @@
+[gd_scene format=3 uid="uid://b888iejuxr40r"]
+
+[ext_resource type="Script" uid="uid://deyke2p1i4377" path="res://scripts/Start.cs" id="2_11y2r"]
+[ext_resource type="Texture2D" uid="uid://2idfvlhphoqt" path="res://sprites/setings.png" id="2_bfhna"]
+[ext_resource type="Script" uid="uid://hrqi6beehnkb" path="res://scripts/Options.cs" id="2_o0tnf"]
+[ext_resource type="Texture2D" uid="uid://ccv2dunhiishy" path="res://sprites/fone.png" id="3_5au3h"]
+[ext_resource type="Texture2D" uid="uid://bddooa68epsup" path="res://sprites/New_game.png" id="4_32dg4"]
+[ext_resource type="Texture2D" uid="uid://dybwd8wt8xwar" path="res://sprites/квадрат.png" id="4_o0tnf"]
+[ext_resource type="Texture2D" uid="uid://bwaxk8otb4rkl" path="res://sprites/spawn_egg.png" id="5_b6cxs"]
+[ext_resource type="Script" uid="uid://cwhiatw00t2p6" path="res://scripts/Close.cs" id="5_jmdev"]
+[ext_resource type="Texture2D" uid="uid://ckieecd1le7h3" path="res://sprites/buttons.png" id="7_lijdy"]
+[ext_resource type="Script" uid="uid://cl0hitmkylai" path="res://scripts/SettingsMenu.cs" id="9_32dg4"]
+
+[node name="Control" type="Control" unique_id=738621369]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Options" type="Button" parent="." unique_id=1234665802 node_paths=PackedStringArray("fone")]
+layout_mode = 0
+offset_left = 387.0
+offset_top = 681.0
+offset_right = 587.0
+offset_bottom = 756.0
+script = ExtResource("2_o0tnf")
+fone = NodePath("../menu/Sprite2D")
+
+[node name="Setings" type="Sprite2D" parent="Options" unique_id=42250462]
+position = Vector2(102.5, 39.25)
+scale = Vector2(5.78125, 6.388889)
+texture = ExtResource("2_bfhna")
+
+[node name="Start" type="Button" parent="." unique_id=870178384]
+layout_mode = 0
+offset_left = 388.0
+offset_top = 555.0
+offset_right = 655.0
+offset_bottom = 625.0
+script = ExtResource("2_11y2r")
+
+[node name="NewGame" type="Sprite2D" parent="Start" unique_id=1906691833]
+position = Vector2(136, 34)
+scale = Vector2(5.7727275, 6.75)
+texture = ExtResource("4_32dg4")
+
+[node name="Background" type="Node" parent="." unique_id=621686893]
+
+[node name="Sprite2D" type="Sprite2D" parent="Background" unique_id=1887971814]
+z_index = -1
+position = Vector2(960.00726, 543.8333)
+scale = Vector2(11.950091, 12.085186)
+texture = ExtResource("3_5au3h")
+
+[node name="menu" type="Node" parent="." unique_id=1192754714]
+
+[node name="Sprite2D" type="Sprite2D" parent="menu" unique_id=2104606307]
+visible = false
+modulate = Color(1, 1, 1, 0.6039216)
+position = Vector2(895, 619)
+texture = ExtResource("4_o0tnf")
+
+[node name="Close" type="Button" parent="menu/Sprite2D" unique_id=475319797 node_paths=PackedStringArray("fone")]
+offset_left = -150.0
+offset_top = -150.0
+offset_right = -35.0
+offset_bottom = -101.0
+icon = ExtResource("5_b6cxs")
+script = ExtResource("5_jmdev")
+fone = NodePath("..")
+
+[node name="SettingsMenu" type="Control" parent="menu/Sprite2D" unique_id=1736970963 node_paths=PackedStringArray("_resButton")]
+layout_mode = 3
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -170.0
+offset_right = -110.0
+offset_bottom = -130.0
+grow_vertical = 2
+script = ExtResource("9_32dg4")
+_resButton = NodePath("OptionButton")
+
+[node name="OptionButton" type="OptionButton" parent="menu/Sprite2D/SettingsMenu" unique_id=457280589]
+layout_mode = 0
+offset_left = 12.0
+offset_top = -31.0
+offset_right = 44.0
+offset_bottom = -11.0
+
+[node name="CheckButton" type="CheckButton" parent="menu/Sprite2D/SettingsMenu" unique_id=31369892]
+layout_mode = 0
+offset_left = 160.0
+offset_top = -36.0
+offset_right = 204.0
+offset_bottom = -12.0
+
+[node name="CheckButton2" type="CheckButton" parent="menu/Sprite2D/SettingsMenu" unique_id=1561455774]
+layout_mode = 0
+offset_left = 159.0
+offset_top = 12.0
+offset_right = 203.0
+offset_bottom = 36.0
+
+[node name="Buttons" type="Sprite2D" parent="." unique_id=818634943]
+visible = false
+position = Vector2(590.875, 787.375)
+scale = Vector2(6.313, 7)
+texture = ExtResource("7_lijdy")
+
+[connection signal="pressed" from="Options" to="Options" method="ButtonPressed"]
+[connection signal="pressed" from="Start" to="Start" method="ButtonPressed"]
+[connection signal="pressed" from="menu/Sprite2D/Close" to="menu/Sprite2D/Close" method="ButtonPressed"]
+[connection signal="item_selected" from="menu/Sprite2D/SettingsMenu/OptionButton" to="menu/Sprite2D/SettingsMenu" method="OnResolutionSelected"]
+[connection signal="toggled" from="menu/Sprite2D/SettingsMenu/CheckButton" to="menu/Sprite2D/SettingsMenu" method="OnFullscreenToggled"]
+[connection signal="toggled" from="menu/Sprite2D/SettingsMenu/CheckButton2" to="menu/Sprite2D/SettingsMenu" method="OnBorderlessToggled"]

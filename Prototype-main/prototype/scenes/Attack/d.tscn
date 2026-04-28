@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://c1abr4ovvubhc"]
+
+[ext_resource type="Script" uid="uid://dj3wk633ntbew" path="res://scripts/Arrow_move.cs" id="1_v0i7c"]
+[ext_resource type="Texture2D" uid="uid://dapwigg0iutgd" path="res://sprites/right.png" id="2_v0i7c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7gu5d"]
+size = Vector2(339.99997, 259.99997)
+
+[node name="d" type="Node2D" unique_id=1187974714]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=2056318278 groups=["arrow", "ui_right"]]
+script = ExtResource("1_v0i7c")
+direction = Vector2(-1, 0)
+
+[node name="I" type="Sprite2D" parent="CharacterBody2D" unique_id=440365651]
+position = Vector2(56, -90)
+texture = ExtResource("2_v0i7c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1647437511 groups=["arrow", "ui_right"]]
+position = Vector2(1.0000005, -1.0000001)
+scale = Vector2(0.1, 0.1)
+shape = SubResource("RectangleShape2D_7gu5d")
+one_way_collision = true

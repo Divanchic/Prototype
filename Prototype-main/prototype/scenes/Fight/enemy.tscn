@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://dj4o1qiphq1ld"]
+
+[ext_resource type="Texture2D" uid="uid://0gb6nw280kja" path="res://sprites/icon.svg" id="1_j53sp"]
+[ext_resource type="Script" uid="uid://dg1qmjsd380qm" path="res://scripts/SetAttach.cs" id="1_tv43w"]
+[ext_resource type="Script" uid="uid://el0fqppopqno" path="res://scripts/fight_start.cs" id="2_66vva"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_66vva"]
+size = Vector2(25, 25)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tv43w"]
+radius = 87.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_c3lfu"]
+radius = 29.274563
+
+[node name="Enemy" type="CharacterBody2D" unique_id=642151349 node_paths=PackedStringArray("enemy_sprite") groups=["enemy"]]
+script = ExtResource("1_tv43w")
+enemy_sprite = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1378032738]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_j53sp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=249255795]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_66vva")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1033107301 groups=["enemy"]]
+script = ExtResource("2_66vva")
+big_zone = 1
+fight_in_files = "res://scenes/Fight/fight.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2111119586]
+shape = SubResource("CircleShape2D_tv43w")
+
+[node name="Area2D2" type="Area2D" parent="." unique_id=829833476]
+script = ExtResource("2_66vva")
+fight_in_files = "res://scenes/Fight/fight.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=1577978907]
+shape = SubResource("CircleShape2D_c3lfu")

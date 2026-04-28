@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://bx6ou4mcspcvv"]
+
+[ext_resource type="Texture2D" uid="uid://bwaxk8otb4rkl" path="res://sprites/spawn_egg.png" id="1_nh2m4"]
+[ext_resource type="Script" uid="uid://dywgve6m2ckxl" path="res://scripts/NPC.cs" id="2_abqhh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nh2m4"]
+radius = 29.068884
+
+[node name="NPC" type="Node2D" unique_id=167500229 groups=["NPC"]]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=123722261]
+texture = ExtResource("1_nh2m4")
+
+[node name="Label" type="Label" parent="Sprite2D" unique_id=465989934]
+visible = false
+offset_left = -2.0
+offset_top = -57.0
+offset_right = 38.0
+offset_bottom = -34.0
+text = "!"
+
+[node name="Node2D" type="Node2D" parent="Sprite2D" unique_id=1543508098]
+visible = false
+
+[node name="Label" type="Label" parent="Sprite2D/Node2D" unique_id=1731035822]
+offset_left = -16.0
+offset_top = -40.0
+offset_right = 24.0
+offset_bottom = -17.0
+text = "PUP"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=950063128 node_paths=PackedStringArray("sing", "Dialog")]
+script = ExtResource("2_abqhh")
+sing = NodePath("../Sprite2D/Label")
+Dialog = NodePath("../Sprite2D/Node2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1879744235]
+shape = SubResource("CircleShape2D_nh2m4")

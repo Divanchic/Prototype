@@ -1,0 +1,144 @@
+[gd_scene format=3 uid="uid://b4suxxxwo1chy"]
+
+[ext_resource type="Script" uid="uid://bnfl14vmpgluu" path="res://scripts/Spawn.cs" id="1_5pobl"]
+[ext_resource type="Texture2D" uid="uid://ccokpt3nn70vx" path="res://sprites/i.webp" id="2_l3t6r"]
+[ext_resource type="Script" uid="uid://declpulvf7y20" path="res://scripts/arrow_area.cs" id="3_1d2rs"]
+[ext_resource type="Script" uid="uid://do5li7ym48js0" path="res://scripts/destroy_hp.cs" id="4_w1uyi"]
+[ext_resource type="Texture2D" uid="uid://dybwd8wt8xwar" path="res://sprites/квадрат.png" id="5_l3t6r"]
+[ext_resource type="Script" uid="uid://baqtfn8fspccn" path="res://scripts/FightProgress.cs" id="5_vymgc"]
+[ext_resource type="Script" uid="uid://bfguc0vkaauy0" path="res://scripts/Exit.cs" id="6_1d2rs"]
+[ext_resource type="Script" uid="uid://cqhms5hdwfcid" path="res://scripts/TryAgain.cs" id="6_w1uyi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dqloj"]
+size = Vector2(850.98926, 322.10535)
+
+[node name="Fight" type="Node2D" unique_id=207946327 node_paths=PackedStringArray("timer", "spawnpoint", "enemyplace")]
+top_level = true
+z_index = 2
+scale = Vector2(0.7, 0.7)
+script = ExtResource("1_5pobl")
+timer = NodePath("Timer")
+spawnpoint = NodePath("spawn")
+enemyplace = NodePath("EnemyPlace")
+
+[node name="Timer" type="Timer" parent="." unique_id=1605231509]
+autostart = true
+
+[node name="point" type="Sprite2D" parent="." unique_id=452427986]
+position = Vector2(-197, 33)
+rotation = -3.1415925
+scale = Vector2(0.08125001, 0.105555564)
+texture = ExtResource("2_l3t6r")
+
+[node name="Place" type="Area2D" parent="point" unique_id=1504369902 node_paths=PackedStringArray("sprite_for_long", "destroy")]
+script = ExtResource("3_1d2rs")
+sprite_for_long = NodePath("../Sprite_for_long")
+destroy = NodePath("../Destroy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="point/Place" unique_id=950803709]
+position = Vector2(-138.90137, -6.1035156e-05)
+scale = Vector2(0.9999996, 0.99999976)
+shape = SubResource("RectangleShape2D_dqloj")
+
+[node name="Destroy" type="Area2D" parent="point" unique_id=201631216 node_paths=PackedStringArray("Spawn", "Menu", "HelthBar")]
+position = Vector2(676.9229, -4.8159156e-05)
+scale = Vector2(0.99999994, 1)
+script = ExtResource("4_w1uyi")
+Spawn = NodePath("../../spawn")
+Menu = NodePath("../../DieMenu")
+HelthBar = NodePath("Control/ProgressBar")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="point/Destroy" unique_id=505462603]
+position = Vector2(31.648438, 0)
+scale = Vector2(0.99999964, 1)
+shape = SubResource("RectangleShape2D_dqloj")
+
+[node name="Control" type="Control" parent="point/Destroy" unique_id=1040214947]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 0.00024414063
+offset_right = 40.000244
+offset_bottom = 40.0
+
+[node name="ProgressBar" type="ProgressBar" parent="point/Destroy/Control" unique_id=1198610562]
+layout_mode = 0
+offset_left = -1061.9784
+offset_top = -526.46606
+offset_right = 354.5464
+offset_bottom = -188.58307
+rotation = -6.2831855
+max_value = 10.0
+step = 1.0
+value = 10.0
+fill_mode = 1
+
+[node name="ProgressBar2" type="ProgressBar" parent="point/Destroy/Control" unique_id=2063763939 node_paths=PackedStringArray("fightprogress", "timer")]
+layout_mode = 0
+offset_left = -4473.121
+offset_top = -1108.5887
+offset_right = -1747.0767
+offset_bottom = -584.6196
+step = 1.0
+fill_mode = 1
+script = ExtResource("5_vymgc")
+fightprogress = NodePath(".")
+timer = NodePath("Timer")
+
+[node name="Timer" type="Timer" parent="point/Destroy/Control/ProgressBar2" unique_id=54541330]
+autostart = true
+
+[node name="Sprite_for_long" type="Node2D" parent="point" unique_id=1124796606]
+visible = false
+
+[node name="point2" type="Sprite2D" parent="point/Sprite_for_long" unique_id=283051743]
+z_index = 2
+scale = Vector2(1, 0.9999998)
+texture = ExtResource("2_l3t6r")
+
+[node name="Point" type="Sprite2D" parent="point/Sprite_for_long" unique_id=188285978]
+z_index = 2
+position = Vector2(1683.9141, 1.3533413)
+scale = Vector2(9.774595, 1)
+texture = ExtResource("5_l3t6r")
+
+[node name="spawn" type="Node2D" parent="." unique_id=359136370]
+position = Vector2(167, 35)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=582273197]
+z_index = -1
+position = Vector2(30.000046, -25.000038)
+scale = Vector2(5.5809526, 3.1571426)
+texture = ExtResource("5_l3t6r")
+
+[node name="DieMenu" type="Node2D" parent="." unique_id=1654986801]
+visible = false
+z_index = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="DieMenu" unique_id=507827817]
+self_modulate = Color(0.11119685, 0.11119684, 0.11119684, 1)
+z_index = -1
+position = Vector2(30.000046, -25.000038)
+scale = Vector2(5.5809526, 3.1571426)
+texture = ExtResource("5_l3t6r")
+
+[node name="Button" type="Button" parent="DieMenu" unique_id=1337977919]
+offset_left = -88.57143
+offset_top = -105.71428
+offset_right = 91.42856
+offset_bottom = -47.714283
+text = "Try Again"
+script = ExtResource("6_w1uyi")
+
+[node name="Button2" type="Button" parent="DieMenu" unique_id=1358134481]
+offset_left = -88.571434
+offset_top = 29.999992
+offset_right = 91.42855
+offset_bottom = 87.99999
+text = "Menu"
+script = ExtResource("6_1d2rs")
+
+[node name="EnemyPlace" type="Node2D" parent="." unique_id=28618805]
+position = Vector2(238.57143, -51.42857)
+
+[connection signal="pressed" from="DieMenu/Button" to="DieMenu/Button" method="ButtonPressed"]
+[connection signal="pressed" from="DieMenu/Button2" to="DieMenu/Button2" method="ButtonPressed"]

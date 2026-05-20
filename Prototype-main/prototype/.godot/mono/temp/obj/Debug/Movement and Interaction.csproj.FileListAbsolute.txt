@@ -15,3 +15,22 @@ C:\Users\Ivan\Desktop\Work\godot\Prototype-main\prototype\.godot\mono\temp\obj\D
 C:\Users\Ivan\Desktop\Work\godot\Prototype-main\prototype\.godot\mono\temp\obj\Debug\Movement and Interaction.pdb
 C:\Users\Ivan\Desktop\Work\godot\Prototype-main\prototype\.godot\mono\temp\obj\Debug\Movement and Interaction.genruntimeconfig.cache
 C:\Users\Ivan\Desktop\Work\godot\Prototype-main\prototype\.godot\mono\temp\obj\Debug\ref\Movement and Interaction.dll
+C:\Users\Ivan\Desktop\Work\godot\Prototype-main\prototype\.godot\mono\temp\obj\Debug\Movement and Interaction.sourcelink.json
+D:\work\Work\godot\Prototype-main\prototype\.godot\mono\temp\bin\Debug\Movement and Interaction.deps.json
+D:\work\Work\godot\Prototype-main\prototype\.godot\mono\temp\bin\Debug\Movement and Interaction.runtimeconfig.json
+D:\work\Work\godot\Prototype-main\prototype\.godot\mono\temp\bin\Debug\Movement and Interaction.dll
+D:\work\Work\godot\Prototype-main\prototype\.godot\mono\temp\bin\Debug\Movement and Interaction.pdb
+D:\work\Work\godot\Prototype-main\prototype\.godot\mono\temp\bin\Debug\GodotSharp.dll
+D:\work\Work\godot\Prototype-main\prototype\.godot\mono\temp\bin\Debug\GodotSharpEditor.dll
+D:\work\Work\godot\Prototype-main\prototype\.godot\mono\temp\obj\Debug\Movement and Interaction.csproj.AssemblyReference.cache
+D:\work\Work\godot\Prototype-main\prototype\.godot\mono\temp\obj\Debug\Movement and Interaction.GeneratedMSBuildEditorConfig.editorconfig
+D:\work\Work\godot\Prototype-main\prototype\.godot\mono\temp\obj\Debug\Movement and Interaction.AssemblyInfoInputs.cache
+D:\work\Work\godot\Prototype-main\prototype\.godot\mono\temp\obj\Debug\Movement and Interaction.AssemblyInfo.cs
+D:\work\Work\godot\Prototype-main\prototype\.godot\mono\temp\obj\Debug\Movement and Interaction.csproj.CoreCompileInputs.cache
+D:\work\Work\godot\Prototype-main\prototype\.godot\mono\temp\obj\Debug\Movement and Interaction.sourcelink.json
+D:\work\Work\godot\Prototype-main\prototype\.godot\mono\temp\obj\Debug\Movement.897FE330.Up2Date
+D:\work\Work\godot\Prototype-main\prototype\.godot\mono\temp\obj\Debug\Movement and Interaction.dll
+D:\work\Work\godot\Prototype-main\prototype\.godot\mono\temp\obj\Debug\refint\Movement and Interaction.dll
+D:\work\Work\godot\Prototype-main\prototype\.godot\mono\temp\obj\Debug\Movement and Interaction.pdb
+D:\work\Work\godot\Prototype-main\prototype\.godot\mono\temp\obj\Debug\Movement and Interaction.genruntimeconfig.cache
+D:\work\Work\godot\Prototype-main\prototype\.godot\mono\temp\obj\Debug\ref\Movement and Interaction.dll

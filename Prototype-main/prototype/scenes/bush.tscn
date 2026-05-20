@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dxiu6v5dsglp4" path="res://sprites/кусты_пустые.png" id="1_tu87o"]
 [ext_resource type="Texture2D" uid="uid://tn4op1c81e1x" path="res://sprites/кусты_ягоды.png" id="2_6ftm5"]
+[ext_resource type="Texture2D" uid="uid://bj2vfylbnkfae" path="res://sprites/2d_lights_and_shadows_neutral_point_light.webp" id="3_6ftm5"]
 [ext_resource type="Script" uid="uid://bbjlqt748akon" path="res://scripts/bush.cs" id="3_jpk7d"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_d8g13"]
@@ -14,6 +15,10 @@ texture = ExtResource("1_tu87o")
 
 [node name="With" type="Sprite2D" parent="." unique_id=883743244]
 texture = ExtResource("2_6ftm5")
+
+[node name="PointLight2D" type="PointLight2D" parent="With" unique_id=448215788]
+color = Color(0.9607843, 0.96862745, 0.7058824, 1)
+texture = ExtResource("3_6ftm5")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1138225820 node_paths=PackedStringArray("berry_bush")]
 script = ExtResource("3_jpk7d")

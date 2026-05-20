@@ -8,21 +8,20 @@
 [ext_resource type="Script" uid="uid://baqtfn8fspccn" path="res://scripts/FightProgress.cs" id="5_vymgc"]
 [ext_resource type="Script" uid="uid://bfguc0vkaauy0" path="res://scripts/Exit.cs" id="6_1d2rs"]
 [ext_resource type="Script" uid="uid://cqhms5hdwfcid" path="res://scripts/TryAgain.cs" id="6_w1uyi"]
+[ext_resource type="AudioStream" uid="uid://dgjjhxfynlm4n" path="res://souns/пробная Edit 1 Export 2.mp3" id="9_8dj87"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dqloj"]
 size = Vector2(850.98926, 322.10535)
 
-[node name="Fight" type="Node2D" unique_id=207946327 node_paths=PackedStringArray("timer", "spawnpoint", "enemyplace")]
+[node name="Fight" type="Node2D" unique_id=207946327 node_paths=PackedStringArray("audioPlayer", "spawnpoint", "enemyplace")]
 top_level = true
 z_index = 2
 scale = Vector2(0.7, 0.7)
 script = ExtResource("1_5pobl")
-timer = NodePath("Timer")
+audioPlayer = NodePath("AudioStreamPlayer2D")
 spawnpoint = NodePath("spawn")
 enemyplace = NodePath("EnemyPlace")
-
-[node name="Timer" type="Timer" parent="." unique_id=1605231509]
-autostart = true
+secondsEarlier = 1.1
 
 [node name="point" type="Sprite2D" parent="." unique_id=452427986]
 position = Vector2(-197, 33)
@@ -139,6 +138,10 @@ script = ExtResource("6_1d2rs")
 
 [node name="EnemyPlace" type="Node2D" parent="." unique_id=28618805]
 position = Vector2(238.57143, -51.42857)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=233929021]
+stream = ExtResource("9_8dj87")
+autoplay = true
 
 [connection signal="pressed" from="DieMenu/Button" to="DieMenu/Button" method="ButtonPressed"]
 [connection signal="pressed" from="DieMenu/Button2" to="DieMenu/Button2" method="ButtonPressed"]

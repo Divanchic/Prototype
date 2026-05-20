@@ -2,6 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://bwaxk8otb4rkl" path="res://sprites/spawn_egg.png" id="1_nh2m4"]
 [ext_resource type="Script" uid="uid://dywgve6m2ckxl" path="res://scripts/NPC.cs" id="2_abqhh"]
+[ext_resource type="Script" uid="uid://gepgcfty2hl0" path="res://scripts/Dialog.cs" id="3_7n8xq"]
+[ext_resource type="Texture2D" uid="uid://dybwd8wt8xwar" path="res://sprites/квадрат.png" id="4_4wlns"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nh2m4"]
 radius = 29.068884
@@ -11,7 +13,7 @@ radius = 29.068884
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=123722261]
 texture = ExtResource("1_nh2m4")
 
-[node name="Label" type="Label" parent="Sprite2D" unique_id=465989934]
+[node name="Sing" type="Label" parent="Sprite2D" unique_id=465989934]
 visible = false
 offset_left = -2.0
 offset_top = -57.0
@@ -19,20 +21,65 @@ offset_right = 38.0
 offset_bottom = -34.0
 text = "!"
 
-[node name="Node2D" type="Node2D" parent="Sprite2D" unique_id=1543508098]
-visible = false
-
-[node name="Label" type="Label" parent="Sprite2D/Node2D" unique_id=1731035822]
-offset_left = -16.0
-offset_top = -40.0
-offset_right = 24.0
-offset_bottom = -17.0
-text = "PUP"
-
-[node name="Area2D" type="Area2D" parent="." unique_id=950063128 node_paths=PackedStringArray("sing", "Dialog")]
+[node name="Area2D" type="Area2D" parent="." unique_id=950063128 node_paths=PackedStringArray("sing", "Dialog", "First_Dialog")]
 script = ExtResource("2_abqhh")
-sing = NodePath("../Sprite2D/Label")
-Dialog = NodePath("../Sprite2D/Node2D")
+sing = NodePath("../Sprite2D/Sing")
+Dialog = NodePath("../DIALOGS")
+First_Dialog = NodePath("../DIALOGS/Dialog")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1879744235]
 shape = SubResource("CircleShape2D_nh2m4")
+
+[node name="DIALOGS" type="Node2D" parent="." unique_id=896896310]
+visible = false
+
+[node name="Dialog" type="Node2D" parent="DIALOGS" unique_id=1884713095 node_paths=PackedStringArray("dialog")]
+script = ExtResource("3_7n8xq")
+dialog = NodePath("../Dialog2")
+
+[node name="Label" type="Label" parent="DIALOGS/Dialog" unique_id=1131561027]
+offset_left = -75.0
+offset_top = 8.0
+offset_right = 16.0
+offset_bottom = 48.0
+text = "ПРОВЕРКА 1"
+
+[node name="Sprite2D" type="Sprite2D" parent="DIALOGS/Dialog" unique_id=449556636]
+modulate = Color(1, 1, 1, 0.45490196)
+position = Vector2(-26.500002, 25.500002)
+scale = Vector2(0.32999998, 0.13)
+texture = ExtResource("4_4wlns")
+
+[node name="Button" type="Button" parent="DIALOGS/Dialog" unique_id=609990918]
+offset_left = 19.0
+offset_top = 41.0
+offset_right = 27.0
+offset_bottom = 49.0
+
+[node name="Dialog2" type="Node2D" parent="DIALOGS" unique_id=1472231031 node_paths=PackedStringArray("Big_Dialog", "sing")]
+visible = false
+script = ExtResource("3_7n8xq")
+Big_Dialog = NodePath("..")
+sing = NodePath("../../Sprite2D/Sing")
+
+[node name="Label" type="Label" parent="DIALOGS/Dialog2" unique_id=1287208261]
+offset_left = -75.0
+offset_top = 8.0
+offset_right = 16.0
+offset_bottom = 48.0
+text = "ПРОВЕРКА 2"
+
+[node name="Sprite2D" type="Sprite2D" parent="DIALOGS/Dialog2" unique_id=1602813084]
+modulate = Color(1, 1, 1, 0.45490196)
+position = Vector2(-26.500002, 25.500002)
+scale = Vector2(0.32999998, 0.13)
+texture = ExtResource("4_4wlns")
+
+[node name="Button" type="Button" parent="DIALOGS/Dialog2" unique_id=735301932]
+offset_left = 19.0
+offset_top = 41.0
+offset_right = 27.0
+offset_bottom = 49.0
+
+[connection signal="pressed" from="DIALOGS/Dialog/Button" to="DIALOGS/Dialog" method="ButtonPressed"]
+[connection signal="pressed" from="DIALOGS/Dialog2/Button" to="DIALOGS/Dialog2" method="End"]

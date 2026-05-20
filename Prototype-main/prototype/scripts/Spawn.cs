@@ -1,76 +1,134 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 
-public partial class Spawn : Node2D
+public partial class Spawn : Node2D 
 {
-	[Export] public Timer timer;
-	private Movement player;
-	private SetAttach enemy;
-	/* Это код для появления стрелочек, в массив spawns пишутся числа
-	это стрелочки которые будут вылетать, например [0,1]-это влево вправо*/
-	public int[] spawns;
-	/* В массив arrows вписываем ссылки на стрелочки 
-	которые хранятся в папке attack */
-	public string[] arrows = ["res://scenes/Attack/a.tscn", 
-	"res://scenes/Attack/d.tscn", 
-	"res://scenes/Attack/s.tscn", 
-	"res://scenes/Attack/w.tscn",
-	"res://scenes/Attack/void.tscn",
-	"res://scenes/Attack/long_a.tscn",
-	];
-	/* Создаем запакованную сцену */
-	PackedScene packed;
-	public int check=0;
-	//[Export] public ProgressBar fightprogress;
+	[Export] public AudioStreamPlayer2D audioPlayer; 
 	[Export] public Node2D spawnpoint;
 	[Export] public Node2D enemyplace;
-	/* при начале кода мы обращаемся к таймеру, когда он равен нулю
-	то испольняется функция OnTimerTimeout*/
-	public override void _Ready(){
-		var enemy = GetNode<SetAttach>("/root/Scene/Enemy");
+
+	[Export] public float secondsEarlier = 1.0f; 
+
+	private Movement player;
+	private SetAttach enemy;
+
+	public string[] arrows = [
+		"res://scenes/Attack/a.tscn",
+		"res://scenes/Attack/d.tscn",
+		"res://scenes/Attack/s.tscn",
+		"res://scenes/Attack/w.tscn",
+		"res://scenes/Attack/void.tscn",
+        "res://scenes/Attack/long_a.tscn"
+	];
+
+	private List<PackedScene> cachedArrows = new List<PackedScene>();
+	public int[] spawns;
+	public float[] spawnTimes;
+	public int check = 0;
+	private bool isFinished = false;
+
+	public override void _Ready()
+	{
+		player = GetNode<Movement>("/root/Scene/Player");
+		enemy = GetNode<SetAttach>("/root/Scene/Enemy");
+
+		if (enemy == null)
+		{
+			GD.PrintErr("[SPAWN ERROR]: Враг (SetAttach) не найден по пути /root/Scene/Enemy!");
+			return;
+		}
+
 		spawns = enemy.spawn;
-		timer.WaitTime = enemy.time;
-		timer.Timeout += OnTimerTimeout;
-		enemy.enemy_sprite.Position = enemyplace.Position;
-		//fightprogress.MaxValue = spawns.Length;
-	}
-	/* проверяем чтобы проверочная переменная не выходила за рамки массива
-	после мы выбираем нужную стрелочку, загружаем ее, а после стрелка 
-	принимает нужную позицию*/
-	private void OnTimerTimeout(){
-		if((check<spawns.Length)){
-			int ar = spawns[check];
-			switch (ar){
-				case -1:
-					timer.WaitTime += 0.5f;
-				
-					break;
-				case -2:
-					timer.WaitTime -= 0.5f;
-				
-					break;
-				default:
-	   				packed = (PackedScene)GD.Load(arrows[ar]);
-					Node2D arrow = (Node2D)packed.Instantiate();
-					arrow.Position = spawnpoint.Position;
-					this.AddChild(arrow);
-					
-					break;
-			}
-			check+=1;
-			
+		spawnTimes = enemy.spawnTimes; 
+
+		// ПРОВЕРКА 1: Заполнены ли массивы у врага?
+		if (spawns == null || spawnTimes == null || spawns.Length == 0 || spawnTimes.Length == 0)
+		{
+			GD.PrintErr($"[SPAWN ERROR]: Массивы пустые! Spawns length: {spawns?.Length}, SpawnTimes length: {spawnTimes?.Length}");
+			return;
+		}
+
+		// ПРОВЕРКА 2: Совпадают ли размеры массивов?
+		if (spawns.Length != spawnTimes.Length)
+		{
+			GD.PrintErr($"[SPAWN ERROR]: Длина массива spawns ({spawns.Length}) не совпадает с spawnTimes ({spawnTimes.Length})!");
+		}
 		
-			//fightprogress.Value = ((spawns.Length) - check);
-			
-			
+		enemy.enemy_sprite.Position = enemyplace.Position;
+
+		foreach (var path in arrows)
+		{
+			cachedArrows.Add(GD.Load<PackedScene>(path));
 		}
-		else{
-			var player = GetNode<Movement>("/root/Scene/Player");
-			var enemy = GetNode<SetAttach>("/root/Scene/Enemy");
-			player.Speed = 300f;
-			player.Show();
-			enemy.Free();
-			this.Free();
+
+		// Запуск музыки с принудительным сбросом позиции
+		if (audioPlayer != null)
+		{
+			audioPlayer.Stop(); // Сбрасываем, если была включена автоигра
+			audioPlayer.Play();
+			GD.Print("[SPAWN INFO]: Музыка успешно запущена.");
 		}
+		else
+		{
+			GD.PrintErr("[SPAWN ERROR]: AudioStreamPlayer не привязан в инспекторе!");
+		}
+	}
+
+	public override void _Process(double delta)
+	{
+		if (isFinished || audioPlayer == null || spawns == null || spawnTimes == null) return;
+
+		// Если музыка почему-то не играет, стрелы не полетят. Проверяем это.
+		if (!audioPlayer.Playing && check < spawns.Length)
+		{
+			return; 
+		}
+
+		float playbackTime = (float)audioPlayer.GetPlaybackPosition();
+		playbackTime += (float)AudioServer.GetTimeSinceLastMix() - (float)AudioServer.GetOutputLatency();
+
+		// Безопасная проверка: если (время - secondsEarlier) уходит в минус,
+		// стрела должна вылететь сразу же на старте (при playbackTime >= 0)
+		while (check < spawns.Length)
+		{
+			float targetTime = spawnTimes[check] - secondsEarlier;
+			
+			// Если расчетное время пришло ИЛИ если оно отрицательное, а игра уже началась
+			if (playbackTime >= targetTime)
+			{
+				GD.Print($"[SPAWN]: Спавню стрелу {check} (тип: {spawns[check]}) на времени трека {playbackTime} сек. (Цель была: {spawnTimes[check]} сек.)");
+				SpawnArrow(spawns[check]);
+				check++;
+			}
+			else
+			{
+				break; // Время для следующей стрелы еще не подошло
+			}
+		}
+
+		if (check >= spawns.Length && !isFinished)
+		{
+			EndSong();
+		}
+	}
+
+	private void SpawnArrow(int arrowIndex)
+	{
+		if (arrowIndex < 0 || arrowIndex >= cachedArrows.Count) return;
+
+		Node2D arrow = (Node2D)cachedArrows[arrowIndex].Instantiate();
+		arrow.Position = spawnpoint.Position;
+		AddChild(arrow);
+	}
+
+	private void EndSong()
+	{
+		isFinished = true;
+		GD.Print("[SPAWN INFO]: Песня завершена, очистка сцены.");
+		player.Speed = 300f;
+		player.Show();
+		enemy.Free();
+		this.Free();
 	}
 }

@@ -8,6 +8,8 @@ public partial class Arrow_move : CharacterBody2D
 	/* Тут мы просто придаем стрелочкам направление и движение*/
 		public override void _Process(double delta)
 		{
+			this.CollisionLayer = 3;
+			this.CollisionMask = 3;	
 			Velocity = direction * Speed;
 			MoveAndSlide();
 		}

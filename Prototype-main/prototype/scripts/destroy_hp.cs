@@ -10,7 +10,8 @@ public partial class destroy_hp : Area2D
 	public int check=0;
 	public override void _Ready()
 	{
-		
+		this.CollisionLayer = 3;
+		this.CollisionMask = 3;	
 		BodyEntered += OnBodyEntered;
 	}
 	

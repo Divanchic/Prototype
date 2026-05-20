@@ -27,6 +27,7 @@ public partial class fight_start : Area2D
 					fight.Position = body.Position;
 					this.AddChild(fight);
 					player.Speed = 0f;
+					
 				}
 			}
 			if(big_zone==0){

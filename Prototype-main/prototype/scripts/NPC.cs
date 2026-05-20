@@ -5,6 +5,7 @@ public partial class NPC : Area2D
 {
 	[Export] public Label sing;
 	[Export] public Node2D Dialog;
+	[Export] public Node2D First_Dialog;
 	public override void _Ready()
 	{
 		BodyEntered += OnBodyEntered;
@@ -26,8 +27,10 @@ public partial class NPC : Area2D
 	public override void _Process(double delta)
 	{
 		if((sing.Visible==true)&&(Input.IsActionJustPressed("E"))&&(Dialog.Visible==false)){
+			
 			Dialog.Show();
 			sing.Hide();
+			First_Dialog.Show();
 		}
 	}
 }

@@ -69,6 +69,7 @@ shape = SubResource("CircleShape2D_75ugp")
 
 [node name="Menu" type="Node2D" parent="Player" unique_id=1231703055]
 visible = false
+z_index = 2
 
 [node name="UI_BG" type="Sprite2D" parent="Player/Menu" unique_id=1438457188]
 self_modulate = Color(0.5370987, 0.5370987, 0.5370987, 1)

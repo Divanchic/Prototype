@@ -1,7 +1,10 @@
+CollisionShape2D
+Area2D
+Camera2D
+Sprite2D
 AudioStreamPlayer2D
 AudioListener2D
 Node2D
-Sprite2D
 DampedSpringJoint2D
 Button
 Label
@@ -10,5 +13,3 @@ PointLight2D
 CheckButton
 OptionButton
 Timer
-CollisionShape2D
-Area2D

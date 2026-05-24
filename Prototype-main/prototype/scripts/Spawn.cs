@@ -2,13 +2,15 @@ using Godot;
 using System;
 using System.Collections.Generic;
 
-public partial class Spawn : Node2D 
+public partial class Spawn : Node2D
 {
 	[Export] public AudioStreamPlayer2D audioPlayer; 
 	[Export] public Node2D spawnpoint;
 	[Export] public Node2D enemyplace;
-
+	[Export] public Node2D enemySpawnpoint;
+	
 	[Export] public float secondsEarlier = 1.0f; 
+	[Export] public float enemySecondsEarlier = 1.5f;
 
 	private Movement player;
 	private SetAttach enemy;
@@ -19,13 +21,15 @@ public partial class Spawn : Node2D
 		"res://scenes/Attack/s.tscn",
 		"res://scenes/Attack/w.tscn",
 		"res://scenes/Attack/void.tscn",
-        "res://scenes/Attack/long_a.tscn"
+		"res://scenes/Attack/long_a.tscn"
 	];
 
 	private List<PackedScene> cachedArrows = new List<PackedScene>();
 	public int[] spawns;
 	public float[] spawnTimes;
-	public int check = 0;
+	
+	public int playerCheck = 0;
+	public int enemyCheck = 0;
 	private bool isFinished = false;
 
 	public override void _Ready()
@@ -42,14 +46,12 @@ public partial class Spawn : Node2D
 		spawns = enemy.spawn;
 		spawnTimes = enemy.spawnTimes; 
 
-		// ПРОВЕРКА 1: Заполнены ли массивы у врага?
 		if (spawns == null || spawnTimes == null || spawns.Length == 0 || spawnTimes.Length == 0)
 		{
 			GD.PrintErr($"[SPAWN ERROR]: Массивы пустые! Spawns length: {spawns?.Length}, SpawnTimes length: {spawnTimes?.Length}");
 			return;
 		}
 
-		// ПРОВЕРКА 2: Совпадают ли размеры массивов?
 		if (spawns.Length != spawnTimes.Length)
 		{
 			GD.PrintErr($"[SPAWN ERROR]: Длина массива spawns ({spawns.Length}) не совпадает с spawnTimes ({spawnTimes.Length})!");
@@ -62,10 +64,9 @@ public partial class Spawn : Node2D
 			cachedArrows.Add(GD.Load<PackedScene>(path));
 		}
 
-		// Запуск музыки с принудительным сбросом позиции
 		if (audioPlayer != null)
 		{
-			audioPlayer.Stop(); // Сбрасываем, если была включена автоигра
+			audioPlayer.Stop(); 
 			audioPlayer.Play();
 			GD.Print("[SPAWN INFO]: Музыка успешно запущена.");
 		}
@@ -79,8 +80,7 @@ public partial class Spawn : Node2D
 	{
 		if (isFinished || audioPlayer == null || spawns == null || spawnTimes == null) return;
 
-		// Если музыка почему-то не играет, стрелы не полетят. Проверяем это.
-		if (!audioPlayer.Playing && check < spawns.Length)
+		if (!audioPlayer.Playing && playerCheck < spawns.Length)
 		{
 			return; 
 		}
@@ -88,38 +88,62 @@ public partial class Spawn : Node2D
 		float playbackTime = (float)audioPlayer.GetPlaybackPosition();
 		playbackTime += (float)AudioServer.GetTimeSinceLastMix() - (float)AudioServer.GetOutputLatency();
 
-		// Безопасная проверка: если (время - secondsEarlier) уходит в минус,
-		// стрела должна вылететь сразу же на старте (при playbackTime >= 0)
-		while (check < spawns.Length)
+		while (enemyCheck < spawns.Length)
 		{
-			float targetTime = spawnTimes[check] - secondsEarlier;
+			float enemyTargetTime = spawnTimes[enemyCheck] - enemySecondsEarlier;
 			
-			// Если расчетное время пришло ИЛИ если оно отрицательное, а игра уже началась
-			if (playbackTime >= targetTime)
+			if (playbackTime >= enemyTargetTime)
 			{
-				GD.Print($"[SPAWN]: Спавню стрелу {check} (тип: {spawns[check]}) на времени трека {playbackTime} сек. (Цель была: {spawnTimes[check]} сек.)");
-				SpawnArrow(spawns[check]);
-				check++;
+				SpawnArrow(spawns[enemyCheck], true);
+				enemyCheck++;
 			}
 			else
 			{
-				break; // Время для следующей стрелы еще не подошло
+				break; 
 			}
 		}
 
-		if (check >= spawns.Length && !isFinished)
+		while (playerCheck < spawns.Length)
+		{
+			float playerTargetTime = spawnTimes[playerCheck] - secondsEarlier;
+			
+			if (playbackTime >= playerTargetTime)
+			{
+				GD.Print($"[SPAWN PLAYER]: Стрела {playerCheck} на времени {playbackTime} сек.");
+				SpawnArrow(spawns[playerCheck], false); 
+				playerCheck++;
+			}
+			else
+			{
+				break; 
+			}
+		}
+
+		if (playerCheck >= spawns.Length && enemyCheck >= spawns.Length && !isFinished)
 		{
 			EndSong();
 		}
 	}
 
-	private void SpawnArrow(int arrowIndex)
+	private void SpawnArrow(int arrowIndex, bool isEnemyArrow)
 	{
 		if (arrowIndex < 0 || arrowIndex >= cachedArrows.Count) return;
 
 		Node2D arrow = (Node2D)cachedArrows[arrowIndex].Instantiate();
-		arrow.Position = spawnpoint.Position;
-		AddChild(arrow);
+		arrow.Scale *= 2;
+
+		if (isEnemyArrow)
+		{
+			arrow.Position = Vector2.Zero;
+			enemySpawnpoint.AddChild(arrow);
+		}
+		else
+		{
+			arrow.Position = spawnpoint.Position;
+			AddChild(arrow);
+		}
+
+		
 	}
 
 	private void EndSong()

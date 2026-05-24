@@ -7,6 +7,7 @@ public partial class destroy_hp : Area2D
 	[Export] public Node2D Menu;
 	[Export] public ProgressBar HelthBar;
 	[Export] public int hp=10;
+	[Export] public AudioStreamPlayer2D audio;
 	public int check=0;
 	public override void _Ready()
 	{
@@ -25,6 +26,7 @@ public partial class destroy_hp : Area2D
 			if(hp<1){
 				Spawn.Free();
 				Menu.Show();
+				audio.Free();
 			}
 		}
 		

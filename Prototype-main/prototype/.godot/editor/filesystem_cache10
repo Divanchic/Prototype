@@ -1,24 +1,26 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1779631928
+::res://::1780224683
 ::res://scenes/::1779295794
 bush.tscn::PackedScene::5711320140135030538::1777478285::0::1::::<><><>0<>0<><>::uid://dxiu6v5dsglp4::::res://sprites/кусты_пустые.png<>uid://tn4op1c81e1x::::res://sprites/кусты_ягоды.png<>uid://bj2vfylbnkfae::::res://sprites/2d_lights_and_shadows_neutral_point_light.webp<>uid://bbjlqt748akon::::res://scripts/bush.cs
 npc.tscn::PackedScene::4065647093350852031::1779295794::0::1::::<><><>0<>0<><>::uid://bwaxk8otb4rkl::::res://sprites/spawn_egg.png<>uid://dywgve6m2ckxl::::res://scripts/NPC.cs<>uid://gepgcfty2hl0::::res://scripts/Dialog.cs<>uid://dybwd8wt8xwar::::res://sprites/квадрат.png
-::res://scenes/Attack/::1777574909
+::res://scenes/Attack/::1779638240
 a.tscn::PackedScene::8927945795231172622::1777405625::0::1::::<><><>0<>0<><>::uid://dwksviykmxy46::::res://sprites/left.png<>uid://dj3wk633ntbew::::res://scripts/Arrow_move.cs
 d.tscn::PackedScene::6597843923251604228::1777403399::0::1::::<><><>0<>0<><>::uid://dj3wk633ntbew::::res://scripts/Arrow_move.cs<>uid://dapwigg0iutgd::::res://sprites/right.png
 long_a.tscn::PackedScene::4062624016746431616::1775916187::0::1::::<><><>0<>0<><>::uid://dj3wk633ntbew::::res://scripts/Arrow_move.cs<>uid://ccokpt3nn70vx::::res://sprites/i.webp
-s.tscn::PackedScene::6542951534833169564::1777403427::0::1::::<><><>0<>0<><>::uid://dj3wk633ntbew::::res://scripts/Arrow_move.cs<>uid://cipwq0fikak1v::::res://sprites/down.png
+s.tscn::PackedScene::6542951534833169564::1779638240::0::1::::<><><>0<>0<><>::uid://dj3wk633ntbew::::res://scripts/Arrow_move.cs<>uid://cipwq0fikak1v::::res://sprites/down.png
 void.tscn::PackedScene::8368251180521414776::1775743700::0::1::::<><><>0<>0<><>::
-w.tscn::PackedScene::8646284886854469142::1777404898::0::1::::<><><>0<>0<><>::uid://dj3wk633ntbew::::res://scripts/Arrow_move.cs<>uid://b78gm1xpm0a08::::res://sprites/up.png
-::res://scenes/Fight/::1779562709
+w.tscn::PackedScene::8646284886854469142::1779634760::0::1::::<><><>0<>0<><>::uid://dj3wk633ntbew::::res://scripts/Arrow_move.cs<>uid://b78gm1xpm0a08::::res://sprites/up.png
+::res://scenes/Fight/::1779643523
+Destroy_Enemy.cs::CSharpScript::1376791625886160744::1779643464::0::1::::<>Area2D<><>0<>0<><>::
 enemy.tscn::PackedScene::7851725920653168561::1779557544::0::1::::<><><>0<>0<><>::uid://0gb6nw280kja::::res://sprites/icon.svg<>uid://dg1qmjsd380qm::::res://scripts/SetAttach.cs<>uid://el0fqppopqno::::res://scripts/fight_start.cs
-fight.tscn::PackedScene::4460312606471125438::1779562709::0::1::::<><><>0<>0<><>::uid://bnfl14vmpgluu::::res://scripts/Spawn.cs<>uid://ccokpt3nn70vx::::res://sprites/i.webp<>uid://declpulvf7y20::::res://scripts/arrow_area.cs<>uid://djb5gknkh5u86::::res://sprites/HP.png<>uid://do5li7ym48js0::::res://scripts/destroy_hp.cs<>uid://dybwd8wt8xwar::::res://sprites/квадрат.png<>uid://baqtfn8fspccn::::res://scripts/FightProgress.cs<>uid://bfguc0vkaauy0::::res://scripts/Exit.cs<>uid://cqhms5hdwfcid::::res://scripts/TryAgain.cs<>uid://or6d0vc0c1a6::::res://sprites/бой_иконка игрока_убийство.png<>uid://dgjjhxfynlm4n::::res://souns/пробная Edit 1 Export 2.mp3<>uid://cnitvcand4pqf::::res://sprites/фонpxo.png
+EnemySpawn.cs::CSharpScript::2963217403212599953::1779635793::0::1::::<>Sprite2D<><>0<>0<><>::
+fight.tscn::PackedScene::4460312606471125438::1779643523::0::1::::<><><>0<>0<><>::uid://bnfl14vmpgluu::::res://scripts/Spawn.cs<>uid://ccokpt3nn70vx::::res://sprites/i.webp<>uid://declpulvf7y20::::res://scripts/arrow_area.cs<>uid://djb5gknkh5u86::::res://sprites/HP.png<>uid://do5li7ym48js0::::res://scripts/destroy_hp.cs<>uid://dybwd8wt8xwar::::res://sprites/квадрат.png<>uid://baqtfn8fspccn::::res://scripts/FightProgress.cs<>uid://bfguc0vkaauy0::::res://scripts/Exit.cs<>uid://cqhms5hdwfcid::::res://scripts/TryAgain.cs<>uid://or6d0vc0c1a6::::res://sprites/бой_иконка игрока_убийство.png<>uid://tu6s62pa5o6c::::res://scenes/Fight/Destroy_Enemy.cs<>uid://dgjjhxfynlm4n::::res://souns/пробная Edit 1 Export 2.mp3<>uid://cnitvcand4pqf::::res://sprites/фонpxo.png<>uid://dd7l21v1hpw5r::::res://sprites/бой_иконка врага.png
 ::res://scenes/levels/::1779560556
 Menu.tscn::PackedScene::4772795161681461903::1777402490::0::1::::<><><>0<>0<><>::uid://deyke2p1i4377::::res://scripts/Start.cs<>uid://2idfvlhphoqt::::res://sprites/setings.png<>uid://hrqi6beehnkb::::res://scripts/Options.cs<>uid://ccv2dunhiishy::::res://sprites/fone.png<>uid://bddooa68epsup::::res://sprites/New_game.png<>uid://dybwd8wt8xwar::::res://sprites/квадрат.png<>uid://bwaxk8otb4rkl::::res://sprites/spawn_egg.png<>uid://cwhiatw00t2p6::::res://scripts/Close.cs<>uid://ckieecd1le7h3::::res://sprites/buttons.png<>uid://cl0hitmkylai::::res://scripts/SettingsMenu.cs
 scene.tscn::PackedScene::7383949418651329697::1779560556::0::1::::<><><>0<>0<><>::uid://dgyub0vewregy::::res://scripts/Movement.cs<>uid://fqo5afw20u5v::::res://sprites/mom.png<>uid://dpbemsqo2v2ec::::res://scripts/camera.cs<>uid://dybwd8wt8xwar::::res://sprites/квадрат.png<>uid://bfguc0vkaauy0::::res://scripts/Exit.cs<>uid://i0g27kxvneq8::::res://scripts/Light_Shut.cs<>uid://bj2vfylbnkfae::::res://sprites/2d_lights_and_shadows_neutral_point_light.webp<>uid://drehee3fhsy7n::::res://sprites/grass.png<>uid://dj4o1qiphq1ld::::res://scenes/Fight/enemy.tscn<>uid://bx6ou4mcspcvv::::res://scenes/npc.tscn<>uid://cnmuuxfub4cri::::res://scenes/bush.tscn
-::res://scripts/::1779561546
+::res://scripts/::1779643085
 arrow_area.cs::CSharpScript::7444841923390520255::1777466536::0::1::::<>Area2D<><>0<>0<><>::
-Arrow_move.cs::CSharpScript::7850119525483869962::1777466536::0::1::::<>CharacterBody2D<><>0<>0<><>::
+Arrow_move.cs::CSharpScript::7850119525483869962::1779643085::0::1::::<>CharacterBody2D<><>0<>0<><>::
 bush.cs::CSharpScript::2475886435479713345::1777122737::0::1::::<>Area2D<><>0<>0<><>::
 camera.cs::CSharpScript::8214424351711980302::1775743700::0::1::::<>Camera2D<><>0<>0<><>::
 Close.cs::CSharpScript::6331933340742887121::1775743700::0::1::::<>Button<><>0<>0<><>::
@@ -35,7 +37,7 @@ Options.cs::CSharpScript::527403715476781889::1777397340::0::1::::<>Button<><>0<
 Player_Area.cs::CSharpScript::2067931990432350352::1775743700::0::1::::<>Area2D<><>0<>0<><>::
 SetAttach.cs::CSharpScript::7635062336615854776::1778872277::0::1::::<>CharacterBody2D<><>0<>0<><>::
 SettingsMenu.cs::CSharpScript::164616718044847700::1777401502::0::1::::<>Control<><>0<>0<><>::
-Spawn.cs::CSharpScript::3309913413503345608::1778482147::0::1::::<>Node2D<><>0<>0<><>::
+Spawn.cs::CSharpScript::3309913413503345608::1779643030::0::1::::<>Node2D<><>0<>0<><>::
 Start.cs::CSharpScript::7490178247327856696::1775743700::0::1::::<>Button<><>0<>0<><>::
 TryAgain.cs::CSharpScript::5911075844756664387::1775743700::0::1::::<>Button<><>0<>0<><>::
 ::res://souns/::1778933707

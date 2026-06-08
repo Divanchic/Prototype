@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Movement and Interaction")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1af6cef0bee02dd0894f938d2cf6837031c93ddc")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bf62cf6f5b02def8076d998a78e316c19f8a5845")]
 [assembly: System.Reflection.AssemblyProductAttribute("Movement and Interaction")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Movement and Interaction")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

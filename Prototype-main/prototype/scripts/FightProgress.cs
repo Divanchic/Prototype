@@ -13,6 +13,7 @@ public partial class FightProgress : ProgressBar
 	{
 		
 		var enemy = GetNode<SetAttach>("/root/Scene/Enemy");
+		enemy.speed = 0;
 		for(int i=1; i<enemy.spawn.Length; i++){
 			if((enemy.spawn[i]!=-1)&&(enemy.spawn[i]!=-2)){
 				len+=0.5f + chtime;

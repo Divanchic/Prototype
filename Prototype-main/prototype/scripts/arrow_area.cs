@@ -11,8 +11,6 @@ public partial class arrow_area : Area2D
 	public string[] buttons = ["ui_left", "ui_right", "ui_up", "ui_down"];
 	public override void _Ready()
 	{
-		this.CollisionLayer = 3;
-		this.CollisionMask = 3;		
 		BodyEntered += OnBodyEntered;
 		BodyExited += OnBodyExited;
 	}

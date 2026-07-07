@@ -6,11 +6,12 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bb4qb"]
 size = Vector2(309.99997, 259.99997)
 
-[node name="a" type="Node2D" unique_id=1552649235]
+[node name="a" type="Node2D" unique_id=1552649235 groups=["arrow", "ui_left"]]
 
 [node name="CharacterBody2D2" type="CharacterBody2D" parent="." unique_id=636767534 groups=["arrow", "ui_left"]]
+collision_layer = 8
+collision_mask = 8
 script = ExtResource("2_goh7k")
-direction = Vector2(-1, 0)
 
 [node name="I" type="Sprite2D" parent="CharacterBody2D2" unique_id=119430407]
 position = Vector2(13, -90)

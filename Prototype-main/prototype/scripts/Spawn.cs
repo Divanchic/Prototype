@@ -34,12 +34,12 @@ public partial class Spawn : Node2D
 
 	public override void _Ready()
 	{
-		player = GetNode<Movement>("/root/Scene/Player");
-		enemy = GetNode<SetAttach>("/root/Scene/Enemy");
+		player = GetTree().GetFirstNodeInGroup("Player") as Movement;
+		enemy = GetTree().GetFirstNodeInGroup("enemy") as SetAttach;
 
 		if (enemy == null)
 		{
-			GD.PrintErr("[SPAWN ERROR]: Враг (SetAttach) не найден по пути /root/Scene/Enemy!");
+			GD.PrintErr("[SPAWN ERROR]: Враг (SetAttach) не найден по пути /root/Scene/CurrentScene/Enemy!");
 			return;
 		}
 
@@ -150,7 +150,7 @@ public partial class Spawn : Node2D
 	{
 		isFinished = true;
 		GD.Print("[SPAWN INFO]: Песня завершена, очистка сцены.");
-		player.Speed = 300f;
+		player.Speed = 50f;
 		player.Show();
 		enemy.Free();
 		this.Free();

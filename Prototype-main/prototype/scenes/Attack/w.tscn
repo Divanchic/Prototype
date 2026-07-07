@@ -9,6 +9,8 @@ size = Vector2(299.99997, 259.99997)
 [node name="w" type="Node2D" unique_id=387401664]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=879784193 groups=["arrow", "ui_up"]]
+collision_layer = 8
+collision_mask = 8
 script = ExtResource("1_pokhl")
 
 [node name="I" type="Sprite2D" parent="CharacterBody2D" unique_id=1069044664]

@@ -6,7 +6,7 @@ public partial class Movement : CharacterBody2D
 	
 	//Экспорт позвоялет менять значение переменной в редакторе//
 	public int Berry = 2;
-	public float Speed = 300.0f;
+	public float Speed = 50.0f;
 	public int hide=0;
 	[Export]public Node2D menu;
 	[Export]public PointLight2D light;
@@ -39,7 +39,7 @@ public partial class Movement : CharacterBody2D
 			}
 			else{
 				menu.Hide();
-				Speed = 300f;
+				Speed = 50f;
 			}
 		}
 		/*Ниже при нажатии на Пробел и если свет не горит то он загорается
@@ -49,12 +49,12 @@ public partial class Movement : CharacterBody2D
 				GD.Print(hide);
 				light.Energy = 0.1f;
 				hide = 1;
-				Speed = 150f;
+				Speed = 25f;
 			}
 			else{
 				light.Energy = 1;
 				hide = 0;
-				Speed = 300f;
+				Speed = 50f;
 			}
 		}
 	}

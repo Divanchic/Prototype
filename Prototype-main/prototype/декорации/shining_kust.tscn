@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://kxtq77jywwpm"]
+
+[ext_resource type="Texture2D" uid="uid://svdjpws3rviq" path="res://assets/тайлы/кусты.png" id="1_xphha"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jrmwu"]
+size = Vector2(10, 5)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rjrqk"]
+texture = ExtResource("1_xphha")
+0:0/0 = 0
+0:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_qc5tr"]
+sources/0 = SubResource("TileSetAtlasSource_rjrqk")
+
+[node name="Area2D" type="Area2D" unique_id=615370387]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=27665554]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1795328081]
+position = Vector2(7, 12.5)
+shape = SubResource("RectangleShape2D_jrmwu")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="StaticBody2D" unique_id=113216074]
+tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0)
+tile_set = SubResource("TileSet_qc5tr")

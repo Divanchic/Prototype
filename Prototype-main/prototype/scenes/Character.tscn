@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://bfhk20ebndauy"]
+
+[ext_resource type="Texture2D" uid="uid://1vy4ba4pvcgl" path="res://assets/персонажи/NPC.png" id="1_gpoll"]
+[ext_resource type="Script" uid="uid://b7yfrfivxlx2w" path="res://персонажи/animated_sprite_2d.gd" id="2_lvwlt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cgwgr"]
+atlas = ExtResource("1_gpoll")
+region = Rect2(0, 0, 11, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i51sx"]
+atlas = ExtResource("1_gpoll")
+region = Rect2(11, 0, 11, 25)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sdgvl"]
+animations = [{
+"frames": [{
+"duration": 1.7,
+"texture": SubResource("AtlasTexture_cgwgr")
+}, {
+"duration": 4.5,
+"texture": SubResource("AtlasTexture_i51sx")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lvwlt"]
+radius = 4.0
+height = 24.0
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1243784171]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=816150439]
+sprite_frames = SubResource("SpriteFrames_sdgvl")
+animation = &"new_animation"
+frame_progress = 0.9606788
+script = ExtResource("2_lvwlt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=607685990]
+position = Vector2(0, 1)
+shape = SubResource("CapsuleShape2D_lvwlt")

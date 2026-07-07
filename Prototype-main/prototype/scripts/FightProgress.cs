@@ -12,7 +12,7 @@ public partial class FightProgress : ProgressBar
 	public override void _Ready()
 	{
 		
-		var enemy = GetNode<SetAttach>("/root/Scene/Enemy");
+		enemy = GetTree().GetFirstNodeInGroup("enemy") as SetAttach;
 		enemy.speed = 0;
 		for(int i=1; i<enemy.spawn.Length; i++){
 			if((enemy.spawn[i]!=-1)&&(enemy.spawn[i]!=-2)){

@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class Options : Button
+public partial class Options : TextureButton
 {
 	//Экспорт позволяет задавать переменную в редакторе//
 	[Export] public Sprite2D fone;

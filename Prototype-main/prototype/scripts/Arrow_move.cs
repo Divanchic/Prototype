@@ -2,7 +2,7 @@ using Godot;
 
 public partial class Arrow_move : CharacterBody2D
 {
-	[Export] public float Speed = -300.0f;
+	[Export] public float Speed = -150.0f;
 	private float currentSpeed;
 
 	public override void _Ready()

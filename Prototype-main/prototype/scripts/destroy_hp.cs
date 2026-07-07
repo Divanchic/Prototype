@@ -11,8 +11,6 @@ public partial class destroy_hp : Area2D
 	public int check=0;
 	public override void _Ready()
 	{
-		this.CollisionLayer = 3;
-		this.CollisionMask = 3;	
 		BodyEntered += OnBodyEntered;
 	}
 	
@@ -23,7 +21,7 @@ public partial class destroy_hp : Area2D
 			body.Free();
 			hp-=1;
 			GD.Print(hp);
-			if(hp<1){
+			if(hp==0){
 				Spawn.Free();
 				Menu.Show();
 				audio.Free();

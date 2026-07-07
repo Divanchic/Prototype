@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cuw0d63x31q7"]
+
+[ext_resource type="Script" uid="uid://dnccqbp0qkrje" path="res://scripts/Door.cs" id="1_yd5ho"]
+[ext_resource type="Texture2D" uid="uid://bwaxk8otb4rkl" path="res://sprites/spawn_egg.png" id="2_17xb1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hbbmf"]
+radius = 15.033297
+
+[node name="Test" type="Node2D" unique_id=316934718]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=418930437]
+position = Vector2(1, 143)
+script = ExtResource("1_yd5ho")
+TargetScenePath = "D:/work/Work/godot/Prototype-main/prototype/scenes/levels/SceneTest.tscn"
+SpawnPosition = Vector2(0, 20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=282205905]
+shape = SubResource("CircleShape2D_hbbmf")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=679339117]
+texture = ExtResource("2_17xb1")

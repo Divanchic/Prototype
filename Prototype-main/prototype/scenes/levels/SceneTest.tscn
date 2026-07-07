@@ -1,0 +1,94 @@
+[gd_scene format=3 uid="uid://1xluf8agyukf"]
+
+[ext_resource type="Texture2D" uid="uid://drehee3fhsy7n" path="res://sprites/grass.png" id="1_gdssd"]
+[ext_resource type="PackedScene" uid="uid://dj4o1qiphq1ld" path="res://scenes/Fight/enemy.tscn" id="2_tmobl"]
+[ext_resource type="PackedScene" uid="uid://bx6ou4mcspcvv" path="res://scenes/npc.tscn" id="3_2a7hp"]
+[ext_resource type="PackedScene" uid="uid://cnmuuxfub4cri" path="res://scenes/bush.tscn" id="4_ywo1l"]
+[ext_resource type="Script" uid="uid://dnccqbp0qkrje" path="res://scripts/Door.cs" id="5_jv1bs"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1gca1"]
+radius = 23.021729
+
+[node name="CurrentScene" type="Node2D" unique_id=1596828632]
+
+[node name="background" type="Node2D" parent="." unique_id=1746427850]
+
+[node name="3x" type="Node" parent="background" unique_id=1893246491]
+
+[node name="4 x3 spites" type="Node2D" parent="background/3x" unique_id=1213347695]
+visible = false
+position = Vector2(522, -264)
+
+[node name="Fone2" type="Sprite2D" parent="background/3x/4 x3 spites" unique_id=206393071]
+z_index = 1
+texture_repeat = 2
+position = Vector2(-79, 76)
+scale = Vector2(3, 3)
+texture = ExtResource("1_gdssd")
+region_enabled = true
+region_rect = Rect2(-23.184, 0, 90, 90)
+
+[node name="2x" type="Node" parent="background" unique_id=1947313784]
+
+[node name="4 x2 spites" type="Node2D" parent="background/2x" unique_id=759923511]
+visible = false
+position = Vector2(-398, -310)
+
+[node name="Fone" type="Sprite2D" parent="background/2x/4 x2 spites" unique_id=1792733495]
+z_index = -1
+texture_repeat = 2
+position = Vector2(399, 76)
+scale = Vector2(2, 2)
+texture = ExtResource("1_gdssd")
+region_enabled = true
+region_rect = Rect2(0, 0, 90, 90)
+
+[node name="1x" type="Node" parent="background" unique_id=1108583943]
+
+[node name="4 x1 sprites" type="Node2D" parent="background/1x" unique_id=1532898498]
+position = Vector2(122, 11)
+
+[node name="Fone" type="Sprite2D" parent="background/1x/4 x1 sprites" unique_id=249568202]
+z_index = -1
+texture_repeat = 2
+position = Vector2(-120, -9)
+texture = ExtResource("1_gdssd")
+region_enabled = true
+region_rect = Rect2(-262.133, -157.30309, 732.7858, 1120.7891)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="background" unique_id=629243556]
+visible = false
+color = Color(0.103743695, 0.10374347, 0.10374353, 1)
+
+[node name="Enemy" parent="." unique_id=642151349 node_paths=PackedStringArray("points") instance=ExtResource("2_tmobl")]
+position = Vector2(165, 0)
+spawnTimes = PackedFloat32Array(8.6, 9.8, 10.5, 11, 11.1, 11.2, 11.3, 12.5, 13, 13.3, 13.8, 14.3, 15.1, 16.3)
+spawn = PackedInt32Array(1, 1, 2, 1, 3, 1, 0, 0, 0, 1, 0, 0, 0, 0)
+speed = 50.0
+points = [NodePath("../Points/1"), NodePath("../Points/2"), NodePath("../Points/3")]
+
+[node name="NPC" parent="." unique_id=167500229 instance=ExtResource("3_2a7hp")]
+position = Vector2(-150, -1)
+
+[node name="Bush" parent="." unique_id=1472555566 instance=ExtResource("4_ywo1l")]
+visible = false
+position = Vector2(-98, 73)
+
+[node name="Points" type="Node" parent="." unique_id=2108924665]
+
+[node name="1" type="Node2D" parent="Points" unique_id=824603685]
+position = Vector2(164, -1)
+
+[node name="2" type="Node2D" parent="Points" unique_id=895210780]
+position = Vector2(2, -168)
+
+[node name="3" type="Node2D" parent="Points" unique_id=623758698]
+position = Vector2(-215, 118)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=714492494]
+position = Vector2(1, 140)
+script = ExtResource("5_jv1bs")
+TargetScenePath = "D:/work/Work/godot/Prototype-main/prototype/scenes/levels/Test.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=433116149]
+shape = SubResource("CircleShape2D_1gca1")

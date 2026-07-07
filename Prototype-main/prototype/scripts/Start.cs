@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class Start : Button
+public partial class Start : TextureButton
 {
 	/*Чтобы метод срабатывал при нажатии на кнопку мы пишем метод
 	а после, выбрав нужную кнопку в меню слева, выбираем в меню "сигналы"

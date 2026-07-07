@@ -27,7 +27,7 @@ public partial class bush : Area2D
 	{
 		if(check == 1 ){
 			if(Input.IsActionJustPressed("E")){
-				var player = GetNode<Movement>("/root/Scene/Player");
+				player = GetTree().GetFirstNodeInGroup("Player") as Movement;
 				player.Berry += 1;
 				berry_bush.Free();
 				this.Free();

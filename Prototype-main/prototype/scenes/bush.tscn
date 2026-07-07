@@ -6,7 +6,10 @@
 [ext_resource type="Script" uid="uid://bbjlqt748akon" path="res://scripts/bush.cs" id="3_jpk7d"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_d8g13"]
-radius = 31.06445
+radius = 19.85
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ftm5"]
+size = Vector2(4, 6)
 
 [node name="Bush" type="Node2D" unique_id=1472555566]
 
@@ -26,3 +29,8 @@ berry_bush = NodePath("../With")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1581166857]
 shape = SubResource("CircleShape2D_d8g13")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=120505798]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=2058494640]
+shape = SubResource("RectangleShape2D_6ftm5")

@@ -47,6 +47,8 @@
 [ext_resource type="Texture2D" uid="uid://cu128phm4eho0" path="res://sprites/Меню/меню_0032.png" id="37_op1ig"]
 [ext_resource type="Texture2D" uid="uid://o7xfmu1vqgy2" path="res://sprites/Меню/меню_0033.png" id="38_jodsf"]
 [ext_resource type="Texture2D" uid="uid://d3sai5qj01xkr" path="res://sprites/Меню/меню_0034.png" id="39_hj7vv"]
+[ext_resource type="Texture2D" uid="uid://b1hd4eiru86yn" path="res://sprites/Buttons/кнопка_выход(1).png" id="48_hyqj8"]
+[ext_resource type="Texture2D" uid="uid://cur0ae2dhaeg0" path="res://sprites/Buttons/кнопка_выход_1(1).png" id="49_jk15i"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_n48mg"]
 animations = [{
@@ -182,6 +184,14 @@ region = Rect2(14, 27, 35, 11)
 atlas = ExtResource("7_ywm4p")
 region = Rect2(14, 27, 35, 11)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_nb15n"]
+atlas = ExtResource("48_hyqj8")
+region = Rect2(16, 40, 21, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x68nc"]
+atlas = ExtResource("49_jk15i")
+region = Rect2(16, 40, 21, 10)
+
 [node name="Control" type="Control" unique_id=738621369]
 layout_mode = 3
 anchors_preset = 15
@@ -300,6 +310,15 @@ stretch_mode = 5
 script = ExtResource("2_o0tnf")
 fone = NodePath("../../menu/Sprite2D")
 
+[node name="Options2" type="TextureButton" parent="VBoxContainer" unique_id=2124561181 node_paths=PackedStringArray("fone")]
+layout_mode = 2
+size_flags_horizontal = 0
+texture_normal = SubResource("AtlasTexture_nb15n")
+texture_hover = SubResource("AtlasTexture_x68nc")
+stretch_mode = 5
+script = ExtResource("2_o0tnf")
+fone = NodePath("../../menu/Sprite2D")
+
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1768129418]
 position = Vector2(961, 542)
 zoom = Vector2(12, 12)
@@ -311,3 +330,4 @@ zoom = Vector2(12, 12)
 [connection signal="pressed" from="VBoxContainer/NewGame" to="VBoxContainer/NewGame" method="ButtonPressed"]
 [connection signal="pressed" from="VBoxContainer/Continue" to="VBoxContainer/Continue" method="ButtonPressed"]
 [connection signal="pressed" from="VBoxContainer/Options" to="VBoxContainer/Options" method="ButtonPressed"]
+[connection signal="pressed" from="VBoxContainer/Options2" to="VBoxContainer/Options2" method="ButtonPressed"]

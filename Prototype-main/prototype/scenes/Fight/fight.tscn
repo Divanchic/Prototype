@@ -165,7 +165,7 @@ position = Vector2(438.57144, 212.85712)
 
 [node name="Фон" type="Sprite2D" parent="." unique_id=2072436323]
 z_index = -1
-scale = Vector2(3.5, 3.5)
+scale = Vector2(3.58, 3.58)
 texture = ExtResource("9_hd6dl")
 
 [node name="DieMenu" type="Node2D" parent="." unique_id=1654986801]

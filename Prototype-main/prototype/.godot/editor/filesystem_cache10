@@ -1,5 +1,5 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1783952786
+::res://::1783955032
 ::res://scenes/::1783087330
 bush.tscn::PackedScene::5711320140135030538::1783087330::0::1::::<><><>0<>0<><>::uid://dxiu6v5dsglp4::::res://sprites/кусты_пустые.png<>uid://tn4op1c81e1x::::res://sprites/кусты_ягоды.png<>uid://bj2vfylbnkfae::::res://sprites/2d_lights_and_shadows_neutral_point_light.webp<>uid://bbjlqt748akon::::res://scripts/bush.cs
 Character.tscn::PackedScene::2752472251850675912::1783074333::0::1::::<><><>0<>0<><>::uid://1vy4ba4pvcgl::::res://assets/персонажи/NPC.png<>uid://b7yfrfivxlx2w::::res://персонажи/animated_sprite_2d.gd

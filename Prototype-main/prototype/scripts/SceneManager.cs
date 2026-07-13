@@ -27,7 +27,7 @@ public partial class SceneManager : Node2D
 		}
 
 		// Запускаем первую локацию
-		ChangeLocation("D:/work/Work/godot/Prototype-main/prototype/scenes/levels/level.tscn", new Vector2(1730, -55)); 
+		ChangeLocation("res://scenes/levels/level.tscn", new Vector2(1730, -55)); 
 	}
 
 	public async void ChangeLocation(string scenePath, Vector2 spawnPosition)

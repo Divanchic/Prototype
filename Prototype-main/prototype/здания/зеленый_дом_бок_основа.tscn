@@ -1,14 +1,14 @@
 [gd_scene format=3 uid="uid://dw83vvrfcnx78"]
 
-[ext_resource type="Texture2D" uid="uid://dsllf626dpa0j" path="res://assets/Дома/дом зеленый.png" id="1_mvqip"]
+[ext_resource type="Texture2D" uid="uid://dsllf626dpa0j" path="res://sprites/assets/Дома/дом зеленый.png" id="1_mvqip"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hm1lg"]
-size = Vector2(59, 27)
+size = Vector2(59, 14)
 
 [node name="Area2D" type="Area2D" unique_id=1040739367]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1207499287]
-position = Vector2(0.5, 13.5)
+position = Vector2(0.5, 7)
 shape = SubResource("RectangleShape2D_hm1lg")
 
 [node name="ДомЗеленый" type="Sprite2D" parent="." unique_id=342677118]

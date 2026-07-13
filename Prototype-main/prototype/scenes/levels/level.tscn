@@ -486,13 +486,13 @@ texture = ExtResource("10_8cye3")
 sources/0 = SubResource("TileSetAtlasSource_8b0r0")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aicyk"]
-size = Vector2(53, 20)
+size = Vector2(53, 14)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8b0r0"]
-size = Vector2(32, 39)
+size = Vector2(32, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5pxul"]
-size = Vector2(18, 41)
+size = Vector2(18, 28)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fedht"]
 size = Vector2(23, 32)
@@ -651,15 +651,15 @@ position = Vector2(1316, 385)
 [node name="StaticBody2D" type="StaticBody2D" parent="Area2D5" unique_id=137931372]
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D5/StaticBody2D" unique_id=422276636]
-position = Vector2(-5.5, 0)
+position = Vector2(-5.5, -3)
 shape = SubResource("RectangleShape2D_aicyk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D5/StaticBody2D" unique_id=1962005774]
-position = Vector2(48, 12.5)
+position = Vector2(48, 9)
 shape = SubResource("RectangleShape2D_8b0r0")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Area2D5/StaticBody2D" unique_id=1848972866]
-position = Vector2(1, 10.5)
+position = Vector2(1, 4)
 shape = SubResource("RectangleShape2D_5pxul")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Area2D5/StaticBody2D" unique_id=931439250]
@@ -762,17 +762,6 @@ position = Vector2(455, 408)
 [node name="Bush2" parent="Кусты/Кучка3" unique_id=1545740633 instance=ExtResource("22_p62il")]
 position = Vector2(475, 387)
 
-[node name="Кучка4" type="Node2D" parent="Кусты" unique_id=2110611630]
-
-[node name="Bush" parent="Кусты/Кучка4" unique_id=172928434 instance=ExtResource("22_p62il")]
-position = Vector2(605, 391)
-
-[node name="StaticBody2D12" parent="Кусты/Кучка4" unique_id=88708323 instance=ExtResource("14_4c15r")]
-position = Vector2(579, 358)
-
-[node name="StaticBody2D11" parent="Кусты/Кучка4" unique_id=2114163584 instance=ExtResource("14_4c15r")]
-position = Vector2(565, 407)
-
 [node name="Кучка5" type="Node2D" parent="Кусты" unique_id=1446996334]
 
 [node name="StaticBody2D10" parent="Кусты/Кучка5" unique_id=881916144 instance=ExtResource("14_4c15r")]
@@ -783,6 +772,17 @@ position = Vector2(748, 369)
 
 [node name="Bush" parent="Кусты/Кучка5" unique_id=1079811292 instance=ExtResource("22_p62il")]
 position = Vector2(716, 394)
+
+[node name="Кучка4" type="Node2D" parent="Кусты" unique_id=2110611630]
+
+[node name="Bush" parent="Кусты/Кучка4" unique_id=172928434 instance=ExtResource("22_p62il")]
+position = Vector2(605, 391)
+
+[node name="StaticBody2D12" parent="Кусты/Кучка4" unique_id=88708323 instance=ExtResource("14_4c15r")]
+position = Vector2(579, 358)
+
+[node name="StaticBody2D11" parent="Кусты/Кучка4" unique_id=2114163584 instance=ExtResource("14_4c15r")]
+position = Vector2(565, 407)
 
 [node name="Кучка6" type="Node2D" parent="Кусты" unique_id=666515733]
 

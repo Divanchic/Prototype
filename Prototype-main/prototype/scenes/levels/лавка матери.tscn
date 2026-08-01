@@ -111,7 +111,7 @@ texture = ExtResource("9_dkllt")
 [node name="Exit" type="Area2D" parent="." unique_id=500248715]
 position = Vector2(79, 121)
 script = ExtResource("8_vd2wn")
-TargetScenePath = "D:/work/Work/godot/Prototype-main/prototype/scenes/levels/level.tscn"
+TargetScenePath = "res://scenes/levels/level.tscn"
 SpawnPosition = Vector2(1170, -50)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Exit" unique_id=490920198]

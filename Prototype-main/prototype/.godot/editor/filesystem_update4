@@ -1,7 +1,9 @@
-res://scenes/levels/level.tscn
-res://scripts/SceneManager.cs
+res://scenes/npc.tscn
+res://scenes/RichTextLabel.cs
+res://scenes/MyRichTextLabel.cs
 res://scripts/Player_Area.cs
 res://scripts/Arrow_move.cs
+res://scenes/levels/OnShadows.cs
 res://scripts/bush.cs
 res://scripts/Door.cs
 res://scripts/Dialog.cs
@@ -17,6 +19,7 @@ res://scripts/SetAttach.cs
 res://scripts/Light_Shut.cs
 res://scripts/Exit.cs
 res://scripts/Movement.cs
+res://scripts/SceneManager.cs
 res://scripts/SettingsMenu.cs
 res://scripts/Close.cs
 res://scripts/Options.cs
@@ -24,3 +27,7 @@ res://scripts/Start.cs
 res://scripts/Global.cs
 res://scenes/Fight/EnemySpawn.cs
 res://scripts/camera.cs
+res://scripts/MyRichTextLabel.cs
+res://scenes/levels/level.tscn
+res://scripts/OnShadows.cs
+res://scenes/levels/scene.tscn

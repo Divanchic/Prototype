@@ -50,7 +50,7 @@ destroy = NodePath("../Destroy")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="point/Place" unique_id=950803709]
 light_mask = 9
 visibility_layer = 9
-position = Vector2(-155.67773, -3.5014648)
+position = Vector2(-349.91324, 169.41858)
 scale = Vector2(0.9999996, 0.99999976)
 shape = SubResource("RectangleShape2D_dqloj")
 
@@ -68,7 +68,7 @@ audio = NodePath("../../AudioStreamPlayer2D")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="point/Destroy" unique_id=505462603]
 light_mask = 9
 visibility_layer = 9
-position = Vector2(220.51286, 8.5046595e-05)
+position = Vector2(142.02176, 169.41852)
 scale = Vector2(0.99999964, 1)
 shape = SubResource("RectangleShape2D_dqloj")
 
@@ -82,22 +82,23 @@ offset_bottom = 933.2331
 metadata/_edit_use_anchors_ = true
 
 [node name="HP_bar" type="Sprite2D" parent="point/Destroy/Control" unique_id=611553596]
-position = Vector2(-3004.3228, -718.16266)
+position = Vector2(-3212.892, -570.382)
 rotation = 3.1415927
-scale = Vector2(16.81, 15.97)
+scale = Vector2(16.685, 13.425)
 texture = ExtResource("4_rlhqa")
 
 [node name="ProgressBar" type="ProgressBar" parent="point/Destroy/Control" unique_id=1198610562]
+modulate = Color(0.1236544, 0, 0.8717222, 1)
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 39.78632
-anchor_top = 2.3831642
-anchor_right = 41.8023
-anchor_bottom = 2.3831642
+anchor_left = 34.33735
+anchor_top = 4.928981
+anchor_right = 36.353333
+anchor_bottom = 4.928981
 offset_left = -2652.0635
 offset_top = -509.54346
-offset_right = -1037.2078
-offset_bottom = -412.9001
+offset_right = -1037.2086
+offset_bottom = -412.90002
 rotation = 3.1415927
 max_value = 10.0
 step = 1.0
@@ -135,7 +136,7 @@ scale = Vector2(9.774595, 1)
 texture = ExtResource("5_l3t6r")
 
 [node name="enemySpawnpoint" type="Node2D" parent="point" unique_id=2133230137]
-position = Vector2(-897.4353, 2170.8687)
+position = Vector2(-944.0264, 1769.0061)
 rotation = 3.1415927
 scale = Vector2(4, 4)
 
@@ -146,26 +147,27 @@ collision_mask = 8
 script = ExtResource("8_xtdql")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="point/enemySpawnpoint/Area2D" unique_id=1179553009]
+position = Vector2(-32.292202, -12.899907)
 shape = SubResource("CircleShape2D_xoxis")
 
-[node name="БойИконкаВрага" type="Sprite2D" parent="point" unique_id=1636304779]
-position = Vector2(-2161.1719, 343.1377)
-rotation = 3.1415925
-scale = Vector2(19.230768, 14.705882)
+[node name="БойИконкаВрага" type="Sprite2D" parent="point/enemySpawnpoint" unique_id=1636304779]
+position = Vector2(337.3821, 408.4967)
+scale = Vector2(4.4390006, 3.3945)
 texture = ExtResource("13_hb8po")
 
 [node name="Sprite2D" type="Sprite2D" parent="point" unique_id=385969756]
-position = Vector2(-2512.5269, 135.33865)
+position = Vector2(-2293.5544, 289.818)
 rotation = 3.1415927
-scale = Vector2(20.08, 16)
+scale = Vector2(16.79, 13.379)
 texture = ExtResource("7_4m57g")
 
 [node name="spawn" type="Node2D" parent="." unique_id=359136370]
-position = Vector2(438.57144, 212.85712)
+position = Vector2(407.01755, 178.94737)
 
 [node name="Фон" type="Sprite2D" parent="." unique_id=2072436323]
 z_index = -1
-scale = Vector2(3.58, 3.58)
+position = Vector2(7.939339e-05, 5.00679e-06)
+scale = Vector2(2.6900587, 2.6900587)
 texture = ExtResource("9_hd6dl")
 
 [node name="DieMenu" type="Node2D" parent="." unique_id=1654986801]
@@ -196,7 +198,7 @@ text = "Menu"
 script = ExtResource("6_1d2rs")
 
 [node name="EnemyPlace" type="Node2D" parent="." unique_id=28618805]
-position = Vector2(-461.42853, -229.99998)
+position = Vector2(-428.0702, -161.4035)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=233929021]
 stream = ExtResource("9_8dj87")

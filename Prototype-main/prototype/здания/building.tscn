@@ -3,13 +3,13 @@
 [ext_resource type="Texture2D" uid="uid://bg018x6cgdbb" path="res://sprites/assets/Дома/дом1.png" id="1_5j34s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5j34s"]
-size = Vector2(14, 12)
+size = Vector2(14, 25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f1gjg"]
-size = Vector2(26, 14)
+size = Vector2(26, 29)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2yopf"]
-size = Vector2(25, 14)
+size = Vector2(25, 29)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_f1gjg"]
 animations = [{
@@ -28,15 +28,15 @@ animations = [{
 position = Vector2(0, 1.5)
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=2113169181]
-position = Vector2(0, 7.5)
+position = Vector2(0, 14)
 shape = SubResource("RectangleShape2D_5j34s")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=581529]
-position = Vector2(19, 8.5)
+position = Vector2(19, 16)
 shape = SubResource("RectangleShape2D_f1gjg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1405652539]
-position = Vector2(-18.5, 8.5)
+position = Vector2(-18.5, 16)
 shape = SubResource("RectangleShape2D_2yopf")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1718893836]

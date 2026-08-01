@@ -3,14 +3,20 @@
 [ext_resource type="Texture2D" uid="uid://4akbr45umm04" path="res://sprites/assets/Дома/дом желтый.png" id="1_d5dfp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iq4w2"]
-size = Vector2(61, 19)
+size = Vector2(61, 58)
 
 [node name="Area2D" type="Area2D" unique_id=2093662024]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=726389]
-position = Vector2(0.5, 10.5)
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=778709768]
+position = Vector2(0.5, 2.5)
 shape = SubResource("RectangleShape2D_iq4w2")
 
 [node name="ДомЖелтый" type="Sprite2D" parent="." unique_id=2054706879]
 position = Vector2(-8, -15)
 texture = ExtResource("1_d5dfp")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=422218376]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=726389]
+position = Vector2(0.5, -2)
+shape = SubResource("RectangleShape2D_iq4w2")

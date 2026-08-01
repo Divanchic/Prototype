@@ -10,7 +10,7 @@
 [ext_resource type="Script" uid="uid://b7yfrfivxlx2w" path="res://персонажи/animated_sprite_2d.gd" id="9_eed2i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8cgb6"]
-size = Vector2(14, 28)
+size = Vector2(14, 17)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_75ugp"]
 radius = 26.076809
@@ -47,16 +47,17 @@ FadeDuration = 0.6
 z_index = 1
 script = ExtResource("1_bt5ca")
 menu = NodePath("Menu")
-light = NodePath("PointLight2D")
+light = NodePath("LightAndShadows/PointLight2D")
 Berrys = NodePath("Label")
 Shape = NodePath("CollisionShape2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=2140513720 groups=["Player"]]
+position = Vector2(0, 5.5)
 shape = SubResource("RectangleShape2D_8cgb6")
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=275587172]
 position = Vector2(2, 0)
-zoom = Vector2(6, 6)
+zoom = Vector2(8, 8)
 process_callback = 0
 limit_enabled = false
 limit_left = -800
@@ -68,17 +69,6 @@ position_smoothing_enabled = true
 position_smoothing_speed = 20.0
 editor_draw_limits = true
 editor_draw_drag_margin = true
-
-[node name="PointLight2D" type="PointLight2D" parent="Player" unique_id=2132976045 node_paths=PackedStringArray("timer")]
-visible = false
-color = Color(0.96109897, 0.97015136, 0.7069716, 1)
-texture = ExtResource("6_8gt25")
-texture_scale = 1.42
-script = ExtResource("5_bt5ca")
-timer = NodePath("Timer")
-
-[node name="Timer" type="Timer" parent="Player/PointLight2D" unique_id=1700191385]
-autostart = true
 
 [node name="check" type="Node2D" parent="Player" unique_id=917138628]
 
@@ -118,6 +108,22 @@ offset_bottom = -62.0
 sprite_frames = SubResource("SpriteFrames_bt5ca")
 animation = &"new_animation"
 script = ExtResource("9_eed2i")
+
+[node name="LightAndShadows" type="Node2D" parent="Player" unique_id=534753733]
+visible = false
+
+[node name="PointLight2D" type="PointLight2D" parent="Player/LightAndShadows" unique_id=2132976045 node_paths=PackedStringArray("timer")]
+color = Color(0.96109897, 0.97015136, 0.7069716, 1)
+texture = ExtResource("6_8gt25")
+texture_scale = 0.5
+script = ExtResource("5_bt5ca")
+timer = NodePath("Timer")
+
+[node name="Timer" type="Timer" parent="Player/LightAndShadows/PointLight2D" unique_id=1700191385]
+autostart = true
+
+[node name="CanvasModulate" type="CanvasModulate" parent="Player/LightAndShadows/PointLight2D" unique_id=1511345766]
+color = Color(0, 0, 0, 1)
 
 [node name="LevelContainer" type="Node2D" parent="." unique_id=1233274845]
 

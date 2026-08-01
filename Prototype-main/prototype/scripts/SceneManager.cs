@@ -8,7 +8,7 @@ public partial class SceneManager : Node2D
 	[Export] public NodePath ContainerPath;
 	
 	[Export] public ColorRect FadeRect; 
-	[Export] public float FadeDuration = 0.4f;
+	[Export] public float FadeDuration = 1.0f;
 
 	private Node _container;
 	private Dictionary<string, Node> _sceneCache = new Dictionary<string, Node>();

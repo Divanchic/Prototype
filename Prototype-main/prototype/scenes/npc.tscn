@@ -4,6 +4,8 @@
 [ext_resource type="Script" uid="uid://dywgve6m2ckxl" path="res://scripts/NPC.cs" id="2_abqhh"]
 [ext_resource type="Script" uid="uid://gepgcfty2hl0" path="res://scripts/Dialog.cs" id="3_7n8xq"]
 [ext_resource type="Texture2D" uid="uid://dybwd8wt8xwar" path="res://sprites/квадрат.png" id="4_4wlns"]
+[ext_resource type="Script" uid="uid://bqr0pdjqisgb1" path="res://scripts/MyRichTextLabel.cs" id="5_4wlns"]
+[ext_resource type="FontFile" uid="uid://bcac5vjvs6ian" path="res://fonts/main.ttf" id="5_tl2vt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nh2m4"]
 radius = 29.068884
@@ -37,24 +39,38 @@ visible = false
 script = ExtResource("3_7n8xq")
 dialog = NodePath("../Dialog2")
 
-[node name="Label" type="Label" parent="DIALOGS/Dialog" unique_id=1131561027]
-offset_left = -75.0
-offset_top = 8.0
-offset_right = 16.0
-offset_bottom = 48.0
-text = "ПРОВЕРКА 1"
-
 [node name="Sprite2D" type="Sprite2D" parent="DIALOGS/Dialog" unique_id=449556636]
 modulate = Color(1, 1, 1, 0.45490196)
-position = Vector2(-26.500002, 25.500002)
-scale = Vector2(0.32999998, 0.13)
+position = Vector2(-5.500001, 25.500002)
+scale = Vector2(0.33666664, 0.13)
 texture = ExtResource("4_4wlns")
 
 [node name="Button" type="Button" parent="DIALOGS/Dialog" unique_id=609990918]
-offset_left = 19.0
+offset_left = 41.0
 offset_top = 41.0
-offset_right = 27.0
+offset_right = 49.0
 offset_bottom = 49.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DIALOGS/Dialog" unique_id=1155339397]
+custom_minimum_size = Vector2(16, 9)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -52.0
+offset_top = 7.0
+offset_right = 41.0
+offset_bottom = 44.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/shadow_outline_size = 2
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 5
+theme_override_fonts/normal_font = ExtResource("5_tl2vt")
+theme_override_font_sizes/normal_font_size = 14
+bbcode_enabled = true
+text = " Проверка 1"
+script = ExtResource("5_4wlns")
 
 [node name="Dialog2" type="Node2D" parent="DIALOGS" unique_id=1472231031 node_paths=PackedStringArray("Big_Dialog", "sing")]
 visible = false
@@ -62,24 +78,38 @@ script = ExtResource("3_7n8xq")
 Big_Dialog = NodePath("..")
 sing = NodePath("../../Sprite2D/Sing")
 
-[node name="Label" type="Label" parent="DIALOGS/Dialog2" unique_id=1287208261]
-offset_left = -75.0
-offset_top = 8.0
-offset_right = 16.0
-offset_bottom = 48.0
-text = "ПРОВЕРКА 2"
-
 [node name="Sprite2D" type="Sprite2D" parent="DIALOGS/Dialog2" unique_id=1602813084]
 modulate = Color(1, 1, 1, 0.45490196)
-position = Vector2(-26.500002, 25.500002)
-scale = Vector2(0.32999998, 0.13)
+position = Vector2(-5.500001, 25.500002)
+scale = Vector2(0.33666664, 0.13)
 texture = ExtResource("4_4wlns")
 
 [node name="Button" type="Button" parent="DIALOGS/Dialog2" unique_id=735301932]
-offset_left = 19.0
+offset_left = 41.0
 offset_top = 41.0
-offset_right = 27.0
+offset_right = 49.0
 offset_bottom = 49.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DIALOGS/Dialog2" unique_id=1357131871]
+custom_minimum_size = Vector2(16, 9)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -52.0
+offset_top = 7.0
+offset_right = 41.0
+offset_bottom = 44.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/shadow_outline_size = 2
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 5
+theme_override_fonts/normal_font = ExtResource("5_tl2vt")
+theme_override_font_sizes/normal_font_size = 14
+bbcode_enabled = true
+text = " Проверка 2"
+script = ExtResource("5_4wlns")
 
 [connection signal="pressed" from="DIALOGS/Dialog/Button" to="DIALOGS/Dialog" method="ButtonPressed"]
 [connection signal="pressed" from="DIALOGS/Dialog2/Button" to="DIALOGS/Dialog2" method="End"]

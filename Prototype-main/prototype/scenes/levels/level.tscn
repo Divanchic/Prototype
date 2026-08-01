@@ -23,6 +23,8 @@
 [ext_resource type="PackedScene" uid="uid://cnmuuxfub4cri" path="res://scenes/bush.tscn" id="22_p62il"]
 [ext_resource type="Script" uid="uid://dnccqbp0qkrje" path="res://scripts/Door.cs" id="23_c3o0d"]
 [ext_resource type="PackedScene" uid="uid://dj4o1qiphq1ld" path="res://scenes/Fight/enemy.tscn" id="23_c8ctg"]
+[ext_resource type="Script" uid="uid://c1bxir8ss7f" path="res://scripts/OnShadows.cs" id="24_c8ctg"]
+[ext_resource type="PackedScene" uid="uid://bx6ou4mcspcvv" path="res://scenes/npc.tscn" id="25_xog87"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4c15r"]
 texture = ExtResource("9_2orkt")
@@ -486,16 +488,16 @@ texture = ExtResource("10_8cye3")
 sources/0 = SubResource("TileSetAtlasSource_8b0r0")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aicyk"]
-size = Vector2(53, 14)
+size = Vector2(53, 28)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8b0r0"]
-size = Vector2(32, 32)
+size = Vector2(32, 43)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5pxul"]
-size = Vector2(18, 28)
+size = Vector2(18, 45)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fedht"]
-size = Vector2(23, 32)
+size = Vector2(23, 39)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_v5j5c"]
 animations = [{
@@ -511,17 +513,26 @@ animations = [{
 [sub_resource type="TileSet" id="TileSet_8cye3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mleqk"]
-size = Vector2(33, 37)
+size = Vector2(33, 40)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6btg4"]
-size = Vector2(32, 9)
+size = Vector2(32, 24)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p62il"]
-size = Vector2(10, 41)
+size = Vector2(10, 51)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c8ctg"]
 radius = 6.0
 height = 12.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c3o0d"]
+size = Vector2(38, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xog87"]
+size = Vector2(25, 140)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c8ctg"]
+size = Vector2(62, 19)
 
 [node name="level" type="Node2D" unique_id=825355895]
 position = Vector2(392, -493)
@@ -651,19 +662,19 @@ position = Vector2(1316, 385)
 [node name="StaticBody2D" type="StaticBody2D" parent="Area2D5" unique_id=137931372]
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D5/StaticBody2D" unique_id=422276636]
-position = Vector2(-5.5, -3)
+position = Vector2(-5.5, 4)
 shape = SubResource("RectangleShape2D_aicyk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D5/StaticBody2D" unique_id=1962005774]
-position = Vector2(48, 9)
+position = Vector2(48, 14.5)
 shape = SubResource("RectangleShape2D_8b0r0")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Area2D5/StaticBody2D" unique_id=1848972866]
-position = Vector2(1, 4)
+position = Vector2(1, 12.5)
 shape = SubResource("RectangleShape2D_5pxul")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Area2D5/StaticBody2D" unique_id=931439250]
-position = Vector2(21.5, 6)
+position = Vector2(21.5, 9.5)
 shape = SubResource("RectangleShape2D_fedht")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D5/StaticBody2D" unique_id=1636957088]
@@ -703,15 +714,15 @@ position = Vector2(972, 422)
 [node name="StaticBody2D" type="StaticBody2D" parent="Лавка" unique_id=685582518]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Лавка/StaticBody2D" unique_id=708696762]
-position = Vector2(-197.5, -35.5)
+position = Vector2(-197.5, -34)
 shape = SubResource("RectangleShape2D_mleqk")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Лавка/StaticBody2D" unique_id=1011147683]
-position = Vector2(-164, -15.5)
+position = Vector2(-164, -8)
 shape = SubResource("RectangleShape2D_6btg4")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Лавка/StaticBody2D" unique_id=1759545389]
-position = Vector2(-145, -32.5)
+position = Vector2(-145, -27.5)
 shape = SubResource("RectangleShape2D_p62il")
 
 [node name="ЛавкаМатери" type="Sprite2D" parent="Лавка" unique_id=511510972]
@@ -819,3 +830,33 @@ position = Vector2(626, 927)
 spawnTimes = PackedFloat32Array(8.6, 9.8, 10.5, 11, 11.1, 11.2, 11.3, 12.5, 13, 13.3, 13.8, 14.3, 15.1, 16.3)
 spawn = PackedInt32Array(1, 1, 2, 1, 3, 1, 0, 0, 0, 1, 0, 0, 0, 0)
 speed = 50.0
+
+[node name="TP_TO_FOREST" type="Node2D" parent="." unique_id=1837322155]
+
+[node name="TO_FOREST" type="Area2D" parent="TP_TO_FOREST" unique_id=275606563]
+position = Vector2(288, 633)
+script = ExtResource("23_c3o0d")
+TargetScenePath = "res://scenes/levels/level.tscn"
+SpawnPosition = Vector2(675, 250)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TP_TO_FOREST/TO_FOREST" unique_id=631872600]
+shape = SubResource("RectangleShape2D_c3o0d")
+
+[node name="Area2D4" type="Area2D" parent="TP_TO_FOREST" unique_id=2030669609 node_paths=PackedStringArray("TP")]
+position = Vector2(290, 714)
+script = ExtResource("24_c8ctg")
+TP = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TP_TO_FOREST/Area2D4" unique_id=458539315]
+position = Vector2(-2.5, -23)
+shape = SubResource("RectangleShape2D_xog87")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="TP_TO_FOREST" unique_id=1467842577]
+position = Vector2(288, 650)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TP_TO_FOREST/StaticBody2D" unique_id=865760214]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_c8ctg")
+
+[node name="NPC" parent="." unique_id=167500229 instance=ExtResource("25_xog87")]
+position = Vector2(1038, 448)
